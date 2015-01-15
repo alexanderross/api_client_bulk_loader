@@ -1,0 +1,521 @@
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTestObjs (20131206162427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "test_objs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131206162427"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:32:14', '2013-12-06 17:32:14', 980190962)
+SQLite3::SQLException: table test_objs has no column named desc: INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:32:14', '2013-12-06 17:32:14', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:32:14', '2013-12-06 17:32:14', 980190962)
+SQLite3::SQLException: table test_objs has no column named desc: INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:32:14', '2013-12-06 17:32:14', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:23', '2013-12-06 17:33:23', 980190962)
+SQLite3::SQLException: table test_objs has no column named desc: INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:23', '2013-12-06 17:33:23', 980190962)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:23', '2013-12-06 17:33:23', 980190962)
+SQLite3::SQLException: table test_objs has no column named desc: INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:23', '2013-12-06 17:33:23', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:47', '2013-12-06 17:33:47', 980190962)
+SQLite3::SQLException: table test_objs has no column named desc: INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:47', '2013-12-06 17:33:47', 980190962)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:47', '2013-12-06 17:33:47', 980190962)
+SQLite3::SQLException: table test_objs has no column named desc: INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:33:47', '2013-12-06 17:33:47', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTestObjs (20131206162427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "test_objs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "desc" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131206162427"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:34:19', '2013-12-06 17:34:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:34:19', '2013-12-06 17:34:19', 298486374)[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:35:25', '2013-12-06 17:35:25', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:35:25', '2013-12-06 17:35:25', 298486374)[0m
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:35:25 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  Rendered test_objs/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:35:25 -0800
+Processing by TestObjsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:37:19', '2013-12-06 17:37:19', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:37:19', '2013-12-06 17:37:19', 298486374)[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:37:19 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  Rendered test_objs/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "test_objs"
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:37:19 -0800
+Processing by TestObjsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:38:19', '2013-12-06 17:38:19', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:38:19', '2013-12-06 17:38:19', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:38:19 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  Rendered test_objs/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:38:19 -0800
+Processing by TestObjsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:39:11', '2013-12-06 17:39:11', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:39:11', '2013-12-06 17:39:11', 298486374)[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:39:11 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  Rendered test_objs/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:39:11 -0800
+Processing by TestObjsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:39:41', '2013-12-06 17:39:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:39:41', '2013-12-06 17:39:41', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:39:41 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:39:41 -0800
+Processing by TestObjsController#index as HTML
+  [1m[36mTestObj Load (0.1ms)[0m  [1mSELECT "test_objs".* FROM "test_objs"[0m
+Completed 500 Internal Server Error in 2ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:40:24', '2013-12-06 17:40:24', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:40:24', '2013-12-06 17:40:24', 298486374)[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:40:24 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj_medium.html.erb (0.3ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.0ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.0ms)
+  Rendered test_objs/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "test_objs"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:40:24 -0800
+Processing by TestObjsController#index as HTML
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj.html.erb (0.5ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:41:04', '2013-12-06 17:41:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:41:04', '2013-12-06 17:41:04', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:41:04 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj_medium.html.erb (0.3ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.0ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.0ms)
+  Rendered test_objs/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "test_objs"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:41:04 -0800
+Processing by TestObjsController#index as HTML
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj.html.erb (0.4ms)
+  Rendered test_objs/_test_obj.html.erb (0.3ms)
+  Rendered test_objs/_test_obj.html.erb (0.0ms)
+  Rendered test_objs/_test_obj.html.erb (0.0ms)
+  Rendered test_objs/_test_obj.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "test_objs"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "test_objs"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-06 17:41:53', '2013-12-06 17:41:53', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "test_objs" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-06 17:41:53', '2013-12-06 17:41:53', 298486374)[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+TestObjsControllerTest: test_renders_with_variant
+-------------------------------------------------
+Started GET "/test_objs?variant=medium" for 127.0.0.1 at 2013-12-06 09:41:53 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj_medium.html.erb (0.4ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.0ms)
+  Rendered test_objs/_test_obj_medium.html.erb (0.0ms)
+  Rendered test_objs/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "test_objs"[0m
+Started GET "/test_objs?variant=small" for 127.0.0.1 at 2013-12-06 09:41:53 -0800
+Processing by TestObjsController#index as HTML
+  Parameters: {"variant"=>"small"}
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj_small.html.erb (0.4ms)
+  Rendered test_objs/_test_obj_small.html.erb (0.3ms)
+  Rendered test_objs/_test_obj_small.html.erb (0.2ms)
+  Rendered test_objs/_test_obj_small.html.erb (0.0ms)
+  Rendered test_objs/_test_obj_small.html.erb (0.0ms)
+  Rendered test_objs/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "test_objs"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+TestObjsControllerTest: test_renders_without_variant
+----------------------------------------------------
+Started GET "/test_objs" for 127.0.0.1 at 2013-12-06 09:41:53 -0800
+Processing by TestObjsController#index as HTML
+  [1m[35mTestObj Load (0.1ms)[0m  SELECT "test_objs".* FROM "test_objs"
+  Rendered test_objs/_test_obj.html.erb (0.3ms)
+  Rendered test_objs/_test_obj.html.erb (0.2ms)
+  Rendered test_objs/_test_obj.html.erb (0.0ms)
+  Rendered test_objs/_test_obj.html.erb (0.0ms)
+  Rendered test_objs/_test_obj.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "test_objs"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVariantObjects (20131206162427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "variant_objects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "desc" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131206162427"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 20:57:50', '2013-12-09 20:57:50', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 20:57:50', '2013-12-09 20:57:50', 298486374)[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 20:59:01', '2013-12-09 20:59:01', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 20:59:01', '2013-12-09 20:59:01', 298486374)[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+Started GET "/variant_objects?variant=medium" for 127.0.0.1 at 2013-12-09 12:59:01 -0800
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 20:59:17', '2013-12-09 20:59:17', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 20:59:17', '2013-12-09 20:59:17', 298486374)[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+Started GET "/variant_objects?variant=medium" for 127.0.0.1 at 2013-12-09 12:59:17 -0800
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+Started GET "/variant_objects" for 127.0.0.1 at 2013-12-09 12:59:17 -0800
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 20:59:48', '2013-12-09 20:59:48', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 20:59:48', '2013-12-09 20:59:48', 298486374)[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+Started GET "/variant_objects?variant=medium" for 127.0.0.1 at 2013-12-09 12:59:48 -0800
+Processing by VariantObjectsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mVariantObject Load (0.1ms)[0m  SELECT "variant_objects".* FROM "variant_objects"
+  Rendered variant_objects/_variant_object_medium.html.erb (7.0ms)
+  Rendered variant_objects/index.html.erb within layouts/application (11.6ms)
+Completed 500 Internal Server Error in 14ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+Started GET "/variant_objects" for 127.0.0.1 at 2013-12-09 12:59:48 -0800
+Processing by VariantObjectsController#index as HTML
+  [1m[36mVariantObject Load (0.1ms)[0m  [1mSELECT "variant_objects".* FROM "variant_objects"[0m
+  Rendered variant_objects/_variant_object.html.erb (26.5ms)
+Completed 500 Internal Server Error in 28ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 21:00:40', '2013-12-09 21:00:40', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 21:00:40', '2013-12-09 21:00:40', 298486374)[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+Started GET "/variant_objects?variant=medium" for 127.0.0.1 at 2013-12-09 13:00:40 -0800
+Processing by VariantObjectsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  Rendered variant_objects/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+Started GET "/variant_objects" for 127.0.0.1 at 2013-12-09 13:00:40 -0800
+Processing by VariantObjectsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 21:01:23', '2013-12-09 21:01:23', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 21:01:23', '2013-12-09 21:01:23', 298486374)[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+Started GET "/variant_objects?variant=medium" for 127.0.0.1 at 2013-12-09 13:01:23 -0800
+Processing by VariantObjectsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mVariantObject Load (0.2ms)[0m  SELECT "variant_objects".* FROM "variant_objects"
+  Rendered variant_objects/_variant_object_medium.html.erb (0.4ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.2ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.2ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.1ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.0ms)
+  Rendered variant_objects/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+Started GET "/variant_objects" for 127.0.0.1 at 2013-12-09 13:01:23 -0800
+Processing by VariantObjectsController#index as HTML
+  [1m[36mVariantObject Load (0.1ms)[0m  [1mSELECT "variant_objects".* FROM "variant_objects"[0m
+  Rendered variant_objects/_variant_object.html.erb (0.4ms)
+  Rendered variant_objects/_variant_object.html.erb (0.3ms)
+  Rendered variant_objects/_variant_object.html.erb (0.0ms)
+  Rendered variant_objects/_variant_object.html.erb (0.0ms)
+  Rendered variant_objects/_variant_object.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "variant_objects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test1', 'test1 description', '2013-12-09 21:01:43', '2013-12-09 21:01:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "variant_objects" ("name", "desc", "created_at", "updated_at", "id") VALUES ('Test2', 'test2 description', '2013-12-09 21:01:43', '2013-12-09 21:01:43', 298486374)[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+VariantObjectControllerTest: test_renders_with_variant
+------------------------------------------------------
+Started GET "/variant_objects?variant=medium" for 127.0.0.1 at 2013-12-09 13:01:43 -0800
+Processing by VariantObjectsController#index as HTML
+  Parameters: {"variant"=>"medium"}
+  [1m[35mVariantObject Load (0.1ms)[0m  SELECT "variant_objects".* FROM "variant_objects"
+  Rendered variant_objects/_variant_object_medium.html.erb (0.4ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.2ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.2ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.0ms)
+  Rendered variant_objects/_variant_object_medium.html.erb (0.0ms)
+  Rendered variant_objects/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "variant_objects"[0m
+Started GET "/variant_objects?variant=small" for 127.0.0.1 at 2013-12-09 13:01:43 -0800
+Processing by VariantObjectsController#index as HTML
+  Parameters: {"variant"=>"small"}
+  [1m[35mVariantObject Load (0.1ms)[0m  SELECT "variant_objects".* FROM "variant_objects"
+  Rendered variant_objects/_variant_object_small.html.erb (0.3ms)
+  Rendered variant_objects/_variant_object_small.html.erb (0.2ms)
+  Rendered variant_objects/_variant_object_small.html.erb (0.3ms)
+  Rendered variant_objects/_variant_object_small.html.erb (0.0ms)
+  Rendered variant_objects/_variant_object_small.html.erb (0.0ms)
+  Rendered variant_objects/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "variant_objects"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+VariantObjectControllerTest: test_renders_without_variant
+---------------------------------------------------------
+Started GET "/variant_objects" for 127.0.0.1 at 2013-12-09 13:01:43 -0800
+Processing by VariantObjectsController#index as HTML
+  [1m[35mVariantObject Load (0.1ms)[0m  SELECT "variant_objects".* FROM "variant_objects"
+  Rendered variant_objects/_variant_object.html.erb (0.5ms)
+  Rendered variant_objects/_variant_object.html.erb (0.3ms)
+  Rendered variant_objects/_variant_object.html.erb (0.0ms)
+  Rendered variant_objects/_variant_object.html.erb (0.0ms)
+  Rendered variant_objects/_variant_object.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "variant_objects"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
