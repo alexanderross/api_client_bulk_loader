@@ -30,8 +30,18 @@ user.client_user
 >> Garage::Client::User
 ```  
 
-Keep in mind that because this functionality is tied into the later explained "somewhat eager lazy loading", the client call isn't actually made until you call the method. Simply put - it doesn't hit the API until it needs to.  
+Keep in mind that because this functionality is tied into the later explained "somewhat eager lazy loading", the client call isn't actually made until you call the method. Simply put - it doesn't hit the API until it needs to. This gives you the ability to instantiate a bunch of AR models, then only need to make one call to the service to fetch api records for all of them.  
 
+```  
+users = User.where(:life_credo => :yolo)
+users.first.api_obj
+# User endpoint of service is hit
+>> Garage::Client::User  
+
+users.second.api_obj
+#No api call, as the fetched it already.
+>> Garage::Client::User 
+```
 
 ###Problem 2
 Your User model has a 1-n relation with Cars, which itself has a 1-n relation with FancyUpgrades. For some reason, your API User model represents it's Cars with an attribute car_ids, which contains the ids of the cars that user owns. The same is the case for the fancy upgrades. So this is goddamn wonderful.. that is until you want to display a page containing many users with small snippets of information about their cars and the fancy upgrades those cars have. You're smart and grab the  Users from the client. woooo. But as you iterate, you realize that you're hitting the Garage::Client::Cars endpoint once per user, and the Garage::Client::FancyUpgrades endpoint a metric shitton of times. Shit.  
@@ -51,6 +61,11 @@ end
 Garage::Client::Car.class_eval do 
   bulk_load :fancy_upgrades, Garage::Client::FancyUpgrade, from: fancy_upgrade_ids
 end
+
+...
+#In code somewhere - 
+my_api_user.cars
+>> Array(Garage::Client::Car)
   
 ```  
 So we see that we define the attribute to represent the bulk loading (which becomes the accessor for this association), the Client model that represents the resource endpoint for the association, and a :from parameter which depics which attribute of the current model we are querying this association endpoint with. Additional arguments to this are:  
@@ -78,3 +93,9 @@ will only fetch the first 5 of the user's cars.
 *But what if my relation is a has_one!?*  
 
 in addition to `bulk_load`, there is `bulk_load_has_one`. This accepts the same arguments of the previous, but simply calls .first on the returned association. woooo 
+
+#### FAncy MAGicKs 
+A bulk-load-association-enabled client model will do two things differently when using this gem.  
+1) On initialization, for it's autoloaded associations, it will push the needed id's for that association onto to loading queue. 
+  
+2) When any object who's association is autoloaded actually calls that association, all queued id's for said association are bundled together and called. This means that if another object with the same association has that association hit after the first object, there is no second call to the service, as that object's associated objects have already been fetched and are sitting in the temporary bulk fetch store. 
