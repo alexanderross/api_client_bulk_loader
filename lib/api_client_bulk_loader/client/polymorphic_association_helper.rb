@@ -12,16 +12,17 @@ module ApiClientBulkLoader
           @bulk_queued_associations[association].push(values,resource_model)
         end
 
-        #Register an association as one to be batch loaded
+        #Register a polymorphic association as one to be batch loaded
         #Required:
         # association - the association that is being bulk loaded.
-        # api_client_model - the model to fetch the association with (what you call .find on)
+        # type_model_hash - a hash mapping the possible values for type to their respective client endpoints
         #Optional
         # attribute - The attribute of the associated model to search by. Defults to id. This could be used to query by an FK - If you have a User class and a user has many Cars, then under User you could do
         #     bulk_load :cars, Client::Cars, attribute: user_id
         #     This would cause user.cars to trigger a query of cars.json?user_id=<the users id> instead of the default cars.json?ids=[user.car_ids]
         #     Use this when the length of .<>_ids exceeds the uri length limit.
         # from - The attribute of the client model to use to fetch values. eg. :assoc_ids 
+        # type_from - The attribute of the client model to use to fetch the polymorphic type
         # autoload - if the ids for the association will be queued on the item's initialization. Else, you call obj.queue_association(:assoc_to_load) manually.
         # is_has_one - Overrides the default of returning an array for the association, instead it returns the first item.
 
