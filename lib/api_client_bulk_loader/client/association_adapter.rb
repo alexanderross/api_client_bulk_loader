@@ -18,13 +18,13 @@ module ApiClientBulkLoader
 
       #Fetch.
       def fetch(values)
-        results = @bulk_loader.fetch(self, values, @attribute)
+        results = @bulk_loader.fetch(@resource_model, values, @attribute)
         return @has_one ? results.first : results
       end
 
       #Push.
       def push(values)
-        @bulk_loader.push(self, values, @attribute)
+        @bulk_loader.push(@resource_model, values, @attribute)
       end
     end
   end

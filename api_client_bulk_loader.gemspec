@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["alex"]
   s.email       = ["alex@avvo.com"]
   s.homepage    = "http://github.com/alexanderross/api_client_bulk_loader"
-  s.summary     = "Bulk fetching ability for API and Hybrid API models"
+  s.summary     = "Bulk association fetching ability for API and Hybrid API models"
   s.description = "todo."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

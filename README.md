@@ -1,52 +1,8 @@
-###Problem 1:  
-  Your auto garage application has it's own backend with a particular model. Lets call it User. You have the idea to extract the User to it's own service, but aren't quite ready to fully transition to your Garage::Client::User model.  
-    
-###Solution 1:  
-  A common pattern would be to just tack a method onto the User model that gives you the corresponding Garage::Client::User model. This gem adds a method to ActiveRecord::Base that allows you do to 'bind' a method in an AR model to it's API counterpart. For our user, it looks like:  
 
-```
-class User < ActiveRecord::Base
-
-  bind_to_api_model User::Client::User
-  
-end
-
-user = User.find(4)
-user.api_obj
->> Garage::Client::User
-```
-
-This, by default creates a method to access a User's corresponding client model via ``my_user.api_obj``. What this method is called can be changed with the optional second argument.  
-
-```
-class User < ActiveRecord::Base
-
-  bind_to_api_model Garage::Client::User, :client_user
-  
-end
-
-user = User.find(4)
-user.client_user
->> Garage::Client::User
-```  
-
-Keep in mind that because this functionality is tied into the later explained "somewhat eager lazy loading", the client call isn't actually made until you call the method. Simply put - it doesn't hit the API until it needs to. This gives you the ability to instantiate a bunch of AR models, then only need to make one call to the service to fetch api records for all of them.  
-
-```  
-users = User.where(:life_credo => :yolo)
-users.first.api_obj
-# User endpoint of service is hit
->> Garage::Client::User  
-
-users.second.api_obj
-#No api call, as the fetched it already.
->> Garage::Client::User 
-```
-
-###Problem 2
+###Problem
 Your User model has a 1-n relation with Cars, which itself has a 1-n relation with FancyUpgrades. For some reason, your API User model represents it's Cars with an attribute car_ids, which contains the ids of the cars that user owns. The same is the case for the fancy upgrades. So this is goddamn wonderful.. that is until you want to display a page containing many users with small snippets of information about their cars and the fancy upgrades those cars have. You're smart and grab the  Users from the client. woooo. But as you iterate, you realize that you're hitting the Garage::Client::Cars endpoint once per user, and the Garage::Client::FancyUpgrades endpoint a metric shitton of times. Shit.  
   
-###Solution 2 
+###Solution 
 You cook up a slick way to preload each layer of this loading sequence. You already have users, so you iterate over them to get the combination of all of those user's car ids. You batch fetch those and map them into the user under a 'cars' method. wooo. It gets weird when you do this for fancy upgrades, and you quickly realize that this is crazy fucking messy, and you just want a magic solution. Here comes a bulk load solution:  
   
 *I havent figured out exactly where one puts this in, so bear with how unreasonable this is*   

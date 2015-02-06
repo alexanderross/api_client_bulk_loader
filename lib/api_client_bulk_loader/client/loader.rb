@@ -14,8 +14,7 @@ module ApiClientBulkLoader
       end
 
       #Push the values into the appropriate queue store, only if they haven't been run.
-      def push(adapter, values, attribute = :id)
-        model = adapter.resource_model
+      def push(model, values, attribute = :id)
         # Idempotent.
         create_model_attribute_store(model, attribute)
 
@@ -27,8 +26,7 @@ module ApiClientBulkLoader
       end
 
       #Fetch the values, given the adapter that pertains to those values. 
-      def fetch(adapter, values, attribute = :id)
-        model = adapter.resource_model
+      def fetch(model, values, attribute = :id)
         #If any of these values are in the queue, we have to retrieve it.
         retrieve_model_by_attribute!(model, attribute) unless (values & @queued_model_store[model][attribute]).empty?
 
