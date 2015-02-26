@@ -30,8 +30,6 @@ module ApiClientBulkLoader
         def self.bulk_load_poly(association, type_model_hash, attribute: :id, autoload: false, type_from: :document_type, from: :document_id, is_has_one: false, limit: nil)
           @bulk_queued_associations ||= {}
           @bulk_queued_associations[association] = ApiClientBulkLoader::Client::PolymorphicAssociationAdapter.new(type_model_hash, attribute,type_from, from, autoload, is_has_one, limit)
-
-          define_bulk_method(association)
         end
 
         def self.bulk_load_poly_has_one(*args, **kwargs)
@@ -50,9 +48,9 @@ module ApiClientBulkLoader
 
           if !values.nil?
             adapter.push(values, resource_type)
-            self.instance_variable_set("@#{association}", ->{
+            attributes[association] = ->{
               adapter.fetch(values, resource_type)
-            })
+            }
           end
         end
 

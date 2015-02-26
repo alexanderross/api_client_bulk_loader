@@ -14,18 +14,6 @@ module ApiClientBulkLoader
           @bulk_queued_associations
         end
 
-        def self.define_bulk_method(association)
-          #define new getter for assoc that uses the proc
-          define_method association.to_s do 
-            ivar = self.instance_variable_get("@#{association}")
-            if (ivar.is_a? Proc)
-              self.instance_variable_set("@#{association}", ivar.call)
-            else
-              ivar
-            end
-          end
-        end
-
         def initialize(*args)
           super(*args)
           #Skip em unless we got em
@@ -39,6 +27,42 @@ module ApiClientBulkLoader
           end
 
           return self
+        end
+      end
+
+      def as_json(options=nil)
+        prepare_attributes_hash
+        super(options)
+      end
+
+      protected
+
+      def method_missing(method, *args, &block)
+        if method.to_s =~ /^(.*)=$/
+          set_attribute($1, args.first)
+        elsif has_attribute?(method)
+          read_attribute(method)
+        else
+          super
+        end
+      end
+
+      def read_attribute(name)
+        value = attributes.fetch(name, nil)
+        if(value.is_a? Proc)
+          attributes[name] = attributes[name].call
+          value = attributes[name]
+        end
+
+        return value
+      end
+
+      def prepare_attributes_hash
+        return unless self.class.bulk_queued_associations.present?
+        self.class.bulk_queued_associations.keys.each do |assoc|
+          if(attributes[assoc].is_a? Proc)
+            attributes[assoc] = attributes[assoc].call
+          end
         end
       end
     end

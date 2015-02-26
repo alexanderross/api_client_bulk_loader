@@ -27,8 +27,6 @@ module ApiClientBulkLoader
         def self.bulk_load(association, api_client_model, attribute: :id, autoload: false, from: :id, is_has_one: false, limit: nil)
           @bulk_queued_associations ||= {}
           @bulk_queued_associations[association] = ApiClientBulkLoader::Client::AssociationAdapter.new(api_client_model, attribute, from, autoload, is_has_one, limit)
-
-          define_bulk_method(association)
         end
 
         #Shorthand to the above, but automatically sets 'is_has_one' to true.
@@ -47,9 +45,9 @@ module ApiClientBulkLoader
 
           if !values.nil?
             adapter.push(values)
-            self.instance_variable_set("@#{association}", ->{
+            attributes[association] = ->{
               adapter.fetch(values)
-            })
+            }
           end
         end
 
