@@ -18,6 +18,9 @@ module ApiClientBulkLoader
         # Idempotent.
         create_model_attribute_store(model, attribute)
 
+        # THIS IS DEBATABLE - NOW WE ASSUME THAT WE ALWAYS QUERY BY A NUMBER! 
+        values = values.map{|v| v.to_i }
+
         # Eliminate those that have already been checked
         values -= @checked_model_store[model][attribute] if(@checked_model_store[model][attribute])
 
