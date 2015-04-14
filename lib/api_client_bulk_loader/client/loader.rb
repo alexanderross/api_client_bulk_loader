@@ -2,7 +2,11 @@ module ApiClientBulkLoader
   module Client
     #Storage class for our bulk loading. Is one per thread. 
     class Loader
-      def initialize()
+      def initialize
+        reset!
+      end
+
+      def reset!
         #Hash with keys being a client model, pointing to hashes with id's as keys and loaded objects as values.
         @model_store = {}
 
