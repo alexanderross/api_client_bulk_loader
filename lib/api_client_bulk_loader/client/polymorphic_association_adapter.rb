@@ -12,9 +12,8 @@ module ApiClientBulkLoader
         @type_from = type_from
         @has_one = is_has_one
         @limit = limit
-
-        Thread.current[:bulk_loader] ||= ApiClientBulkLoader::Client::Loader.new
-        @bulk_loader = Thread.current[:bulk_loader]
+        RequestStore.store[:bulk_loader] ||= ApiClientBulkLoader::Client::Loader.new
+        @bulk_loader = RequestStore.store[:bulk_loader]
       end
 
       #Fetch.

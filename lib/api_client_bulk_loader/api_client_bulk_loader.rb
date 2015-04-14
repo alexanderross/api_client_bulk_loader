@@ -1,3 +1,4 @@
+require "request_store"
 
 module ApiClientBulkLoader
   module Client
