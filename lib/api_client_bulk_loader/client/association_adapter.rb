@@ -11,20 +11,22 @@ module ApiClientBulkLoader
         @values_from = values_from
         @has_one = is_has_one
         @limit = limit
+      end
 
+      def bulk_loader
         RequestStore.store[:bulk_loader] ||= ApiClientBulkLoader::Client::Loader.new
-        @bulk_loader = RequestStore.store[:bulk_loader]
+        return RequestStore.store[:bulk_loader]
       end
 
       #Fetch.
       def fetch(values)
-        results = @bulk_loader.fetch(@resource_model, values, @attribute)
+        results = bulk_loader.fetch(@resource_model, values, @attribute)
         return @has_one ? results.first : results
       end
 
       #Push.
       def push(values)
-        @bulk_loader.push(@resource_model, values, @attribute)
+        bulk_loader.push(@resource_model, values, @attribute)
       end
     end
   end
