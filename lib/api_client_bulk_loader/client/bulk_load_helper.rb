@@ -30,6 +30,8 @@ module ApiClientBulkLoader
         end
       end
 
+      #we need to override this, as if it is called before we actually hit a bulk-loaded assocation, it will attempt to JSON serialize a proc, which isn't good.
+      #To remedy this, we forcefully call each attribute and if it's a proc, we fire that bulk fetch.
       def as_json(options=nil)
         prepare_attributes_hash
         super(options)

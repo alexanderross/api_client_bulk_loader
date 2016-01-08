@@ -38,7 +38,7 @@ module ApiClientBulkLoader
           adapter = self.class.bulk_queued_associations[association]
           #Probably just raise an exception if it doesnt respond to the target.
           values = Array(self.send(adapter.values_from))
-          limit = limit || adapter.limit
+          limit ||= adapter.limit
 
           values = values.first(limit) if limit.present?
 

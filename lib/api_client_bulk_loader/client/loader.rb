@@ -50,7 +50,7 @@ module ApiClientBulkLoader
 
         values = @queued_model_store[model][attribute]
 
-        results = if attribute != :id #Index the returned results by the attribute used to query by
+        results = if attribute != :id #Index the returned results by the attribute used to query by, this is used when bulk querying by some foreign key.
 
           Array(model.find(attribute => values)).group_by{|obj| obj.send(attribute) }
 

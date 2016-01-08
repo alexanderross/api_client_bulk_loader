@@ -1,21 +1,12 @@
 module ApiClientBulkLoader
   module Client
     #Adapts into the bulk loader. Mainly useful for storing the details of the bulk call.
-    class AssociationAdapter
-      attr_reader :resource_model, :attribute, :autoload, :values_from, :limit
+    class AssociationAdapter < BulkLoadAdapter
+      attr_reader :resource_model
 
       def initialize(res_model, attribute = nil, values_from = nil, autoload = false, is_has_one = false, limit = nil)
         @resource_model = res_model
-        @attribute = attribute
-        @autoload = autoload
-        @values_from = values_from
-        @has_one = is_has_one
-        @limit = limit
-      end
-
-      def bulk_loader
-        RequestStore.store[:bulk_loader] ||= ApiClientBulkLoader::Client::Loader.new
-        return RequestStore.store[:bulk_loader]
+        super(attribute, type_from, values_from, autoload, is_has_one, limit)
       end
 
       #Fetch.

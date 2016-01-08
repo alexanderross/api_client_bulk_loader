@@ -1,24 +1,14 @@
 module ApiClientBulkLoader
   module Client
     #Adapts into the bulk loader. Mainly useful for storing the details of the bulk call.
-    class PolymorphicAssociationAdapter
-      attr_reader :resource_translation, :attribute, :autoload, :type_from, :values_from, :limit
+    class PolymorphicAssociationAdapter < BulkLoadAdapter
+      attr_reader :resource_translation
 
-      def initialize(resource_translation, attribute = nil, type_from = nil, values_from = nil, autoload = false, is_has_one = false, limit = nil)
+      def initialize(resource_translation, attribute = nil, type_from = nil, values_from = nil, autoload = true, is_has_one = false, limit = nil)
         @resource_translation = resource_translation
-        @attribute = attribute
-        @autoload = autoload
-        @values_from = values_from
-        @type_from = type_from
-        @has_one = is_has_one
-        @limit = limit
+        super(attribute, type_from, values_from, autoload, is_has_one, limit)
       end
-
-      def bulk_loader
-        RequestStore.store[:bulk_loader] ||= ApiClientBulkLoader::Client::Loader.new
-        return RequestStore.store[:bulk_loader]
-      end
-
+      
       #Fetch.
       def fetch(values, resource_type)
         results = bulk_loader.fetch(@resource_translation[resource_type], values, @attribute)
