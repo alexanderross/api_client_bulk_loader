@@ -7,8 +7,7 @@ module ApiClientBulkLoader
       def initialize(attribute = nil, values_from = nil, autoload = false, is_has_one = false, limit = nil)
         @attribute = attribute
         @autoload = autoload
-        @values_from = values_from
-        @type_from = type_from
+        @values_from = values_from || "#{attribute}_id"
         @has_one = is_has_one
         @limit = limit
       end

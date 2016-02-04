@@ -6,7 +6,7 @@ module ApiClientBulkLoader
 
       def initialize(res_model, attribute = nil, values_from = nil, autoload = false, is_has_one = false, limit = nil)
         @resource_model = res_model
-        super(attribute, type_from, values_from, autoload, is_has_one, limit)
+        super(attribute, values_from, autoload, is_has_one, limit)
       end
 
       #Fetch.

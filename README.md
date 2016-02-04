@@ -31,7 +31,7 @@ What this will do is, when a Content::Client::Question is initialize, take the v
   
 If we take a question though and call answers, it hits this layer and does something interesting - The bulk load layer will take those answer ids, plus the ids requested by any other initialized questions(or whatever else may be subscribing to Answer), and fetch all of those records in 1 request. 
 
-What about ```autoload```? This defaults to false, but when true it will automatically push the values into the bulk loading layer on initialization. If it is not defined or set to false, one must manually queue the association.
+What about ```autoload```? This defaults to true and when true will automatically push the values into the bulk loading layer on initialization. If it is set to false, one must manually queue the association.
 
 
 
@@ -40,7 +40,7 @@ What about ```autoload```? This defaults to false, but when true it will automat
 ```  
 class Content::Client::Question
 
-	bulk_load :answers, Content::Client::Answer, :from => :id, :as => :question_id, autoload: true
+	bulk_load :answers, Content::Client::Answer, :from => :id, :as => :question_id
 
 	...
 ```  
@@ -68,7 +68,7 @@ and we'd declare the load like:
 ```  
 class Content::Client::Comment
 
-	bulk_load_poly :document, poly_trans_table, autoload: true, has_one: true
+	bulk_load_poly :document, poly_trans_table, has_one: true
 	...
 ```  
 
