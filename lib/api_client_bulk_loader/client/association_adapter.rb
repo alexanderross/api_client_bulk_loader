@@ -11,7 +11,7 @@ module ApiClientBulkLoader
 
       #Fetch.
       def fetch(values)
-        results = bulk_loader.fetch(@resource_model, values, @attribute)
+        results = bulk_loader.fetch(@resource_model, values, @attribute).flatten
         return @has_one ? results.first : results
       end
 
