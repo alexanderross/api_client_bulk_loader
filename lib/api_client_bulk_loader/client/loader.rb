@@ -52,7 +52,8 @@ module ApiClientBulkLoader
 
         results = if attribute != :id #Index the returned results by the attribute used to query by, this is used when bulk querying by some foreign key.
 
-          Array(model.find(attribute => values)).group_by{|obj| obj.send(attribute) }
+          #per_page is slighly opinionated towards JsonApiClient, but should be ignored by everything else.
+          Array(model.find(attribute => values, :per_page => values.size)).group_by{|obj| obj.send(attribute) }
 
         else #Index the results by their ids.
 
