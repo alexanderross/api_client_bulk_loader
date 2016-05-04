@@ -19,6 +19,4 @@ Gem::Specification.new do |s|
   s.add_dependency "activesupport", "> 4.0"
   s.add_dependency "request_store", "1.1.0"
   s.add_dependency "json_api_client"
-
-  s.add_development_dependency "sqlite3"
 end

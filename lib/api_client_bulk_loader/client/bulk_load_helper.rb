@@ -11,13 +11,13 @@ module ApiClientBulkLoader
 
         #Getter for registered association load queues
         def self.bulk_queued_associations
-          @bulk_queued_associations
+          @bulk_queued_associations ||= {}
         end
 
         def initialize(*args)
           super(*args)
           #Skip em unless we got em
-          return self unless self.class.bulk_queued_associations
+          return self unless self.class.bulk_queued_associations.present?
           self.class.bulk_queued_associations.each do |assoc, adapter|
             if adapter.class == ApiClientBulkLoader::Client::PolymorphicAssociationAdapter
               self.queue_poly_association(assoc) if adapter.autoload
